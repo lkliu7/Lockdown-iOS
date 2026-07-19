@@ -145,7 +145,6 @@
 		3DCA4F3322F22CB40017740D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA4F3222F22CB40017740D /* HomeViewController.swift */; };
 		3DCA4F4122F252720017740D /* FirewallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA4F4022F252720017740D /* FirewallController.swift */; };
 		3DCBC8F22542544A00446C98 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3BF4D0233D5E9100D0C482 /* Localizable.strings */; };
-		3DCFE6FA24493F9000EA9B35 /* marketing_beta.txt in Sources */ = {isa = PBXBuildFile; fileRef = 3DCFE6F924493F9000EA9B35 /* marketing_beta.txt */; };
 		3DCFE6FB244945A100EA9B35 /* marketing_beta.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3DCFE6F924493F9000EA9B35 /* marketing_beta.txt */; };
 		3DD545D628068AC5005E140C /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD545CD280681AA005E140C /* libresolv.9.tbd */; };
 		3DD545DB2808C2F6005E140C /* 5000_dummy_list.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3DD545DA2808C2F6005E140C /* 5000_dummy_list.txt */; };
@@ -204,7 +203,7 @@
 		40960B0D2A034054000F82EB /* LockdownStorageIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40960B0C2A034054000F82EB /* LockdownStorageIdentifier.swift */; };
 		40960B0E2A034054000F82EB /* LockdownStorageIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40960B0C2A034054000F82EB /* LockdownStorageIdentifier.swift */; };
 		40960B152A034400000F82EB /* Keychainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40960B142A034400000F82EB /* Keychainable.swift */; };
-		409B59E02A14CB7B0010242C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B59DF2A14CB7B0010242C /* SignUpViewController.swift */; };
+		409B59E02A14CB7B0010242C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B59DF2A14CB7B0010242C /* SignupViewController.swift */; };
 		409B59E42A15CC900010242C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B59E32A15CC900010242C /* WelcomeView.swift */; };
 		409B59E62A15D00C0010242C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B59E52A15D00C0010242C /* WelcomeViewController.swift */; };
 		40CC816E2A14B25C00F9805E /* DeleteMyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC816D2A14B25C00F9805E /* DeleteMyAccountViewController.swift */; };
@@ -745,7 +744,7 @@
 		40960B092A03400E000F82EB /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		40960B0C2A034054000F82EB /* LockdownStorageIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockdownStorageIdentifier.swift; sourceTree = "<group>"; };
 		40960B142A034400000F82EB /* Keychainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychainable.swift; sourceTree = "<group>"; };
-		409B59DF2A14CB7B0010242C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		409B59DF2A14CB7B0010242C /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		409B59E32A15CC900010242C /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		409B59E52A15D00C0010242C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		40CC816D2A14B25C00F9805E /* DeleteMyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteMyAccountViewController.swift; sourceTree = "<group>"; };
@@ -1694,7 +1693,7 @@
 			isa = PBXGroup;
 			children = (
 				40CC849D2A14BEA000F9805E /* SignUpViewController.xib */,
-				409B59DF2A14CB7B0010242C /* SignUpViewController.swift */,
+				409B59DF2A14CB7B0010242C /* SignupViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -2277,7 +2276,6 @@
 			buildConfigurationList = A1141A391F46230600F54698 /* Build configuration list for PBXNativeTarget "Lockdown" */;
 			buildPhases = (
 				40AD9D4B7B30B7F2200BDBC8 /* [CP] Check Pods Manifest.lock */,
-				3D94AEC12542A859005FDC0E /* ShellScript */,
 				A1141A0D1F46230500F54698 /* Sources */,
 				A1141A0E1F46230500F54698 /* Frameworks */,
 				A1141A0F1F46230500F54698 /* Resources */,
@@ -2365,7 +2363,6 @@
 				TargetAttributes = {
 					3DBD57BA22FD727900DE189F = {
 						CreatedOnToolsVersion = 10.3;
-						DevelopmentTeam = V8J3Z26F6Z;
 						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -2391,13 +2388,11 @@
 					};
 					7C0D11192473FC7E00A26E04 = {
 						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = V8J3Z26F6Z;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A1141A101F46230500F54698;
 					};
 					7C9A9369251E1EC700DA5721 = {
 						CreatedOnToolsVersion = 12.0;
-						DevelopmentTeam = V8J3Z26F6Z;
 						ProvisioningStyle = Automatic;
 					};
 					A1141A101F46230500F54698 = {
@@ -2433,7 +2428,6 @@
 					};
 					A12473F21FE44284008493B8 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = V8J3Z26F6Z;
 						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -2459,7 +2453,6 @@
 					};
 					A1931CFA20791F5800E695EB = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = V8J3Z26F6Z;
 						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -2473,7 +2466,6 @@
 					};
 					A1FCDA4022C0651300C928BC = {
 						CreatedOnToolsVersion = 10.2;
-						DevelopmentTeam = V8J3Z26F6Z;
 						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -2746,23 +2738,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3D94AEC12542A859005FDC0E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#if which bartycrouch > /dev/null; then\n#    bartycrouch update -x\n#    bartycrouch lint -x\n#else\n#    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\n#fi\n";
-		};
 		40AD9D4B7B30B7F2200BDBC8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2987,7 +2962,6 @@
 				A1EBEAD22097AE6E002B9087 /* M13CheckboxCheckPathGenerator.swift in Sources */,
 				B1F11C8C2A4C273500A137A3 /* SelectRegionViewModel.swift in Sources */,
 				3DCA4F3122F190AE0017740D /* ClientModels.swift in Sources */,
-				3DCFE6FA24493F9000EA9B35 /* marketing_beta.txt in Sources */,
 				3D0711B822FE79BE00391C6E /* WhyTrustViewController.swift in Sources */,
 				A118F64520B33FED009A64E7 /* TimerEx.swift in Sources */,
 				408E7A9429F88C9200B2F587 /* CustomUISwitch.swift in Sources */,
@@ -3065,7 +3039,7 @@
 				B1F11C7E2A49AE4000A137A3 /* YesNoRadioSwitcherView.swift in Sources */,
 				40098E3B29FF378F00886474 /* FirewallPaywallViewController.swift in Sources */,
 				40CC84C72A14C2B800F9805E /* TextInputState.swift in Sources */,
-				409B59E02A14CB7B0010242C /* SignUpViewController.swift in Sources */,
+				409B59E02A14CB7B0010242C /* SignupViewController.swift in Sources */,
 				B1F11C8A2A4B050500A137A3 /* CountryView.swift in Sources */,
 				A1EBEACC2097AE6E002B9087 /* M13CheckboxDotController.swift in Sources */,
 				7C1AE075247FE1FB0000A7D3 /* PushNotificationsAuthorizationUI.swift in Sources */,
@@ -3354,7 +3328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3390,7 +3364,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3422,7 +3396,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/LockdownTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3451,7 +3425,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/LockdownTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3485,7 +3459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3523,7 +3497,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3669,7 +3643,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C06D645D3C224C044075C2B2 /* Pods-Lockdown.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LockdowniOS/LockdowniOS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -3677,7 +3650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3709,14 +3682,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 173D3911239ED434E2139981 /* Pods-Lockdown.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LockdowniOS/LockdowniOS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3762,7 +3734,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3804,7 +3776,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3840,7 +3812,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Lockdown Blocker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -3870,7 +3842,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Lockdown Blocker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -3903,7 +3875,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3957,7 +3929,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8J3Z26F6Z;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
