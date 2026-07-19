@@ -234,7 +234,7 @@ private extension CustomListsViewController {
                 }
             }
         } else {
-            tableView.addRow { [unowned self] (contentView) in
+            tableView.addRow { (contentView) in
                 contentView.addSubview(lockedList)
                 lockedList.anchors.edges.pin()
             }.onSelect { [unowned self] in
@@ -247,7 +247,7 @@ private extension CustomListsViewController {
             let blockListView = BlockListView()
             blockListView.contents = .listsBlocked(list)
             
-            let cell = tableView.addRow { [unowned self] (contentView) in
+            let cell = tableView.addRow { (contentView) in
                 contentView.addSubview(blockListView)
                 blockListView.anchors.edges.pin()
             }.onSelect { [unowned self] in
@@ -272,7 +272,7 @@ private extension CustomListsViewController {
         let emptyDomains = emptyDomainsView
         if customBlockedDomains.isEmpty {
             editDomainButton.isHidden = true
-            tableView.addRow { [unowned self] (contentView) in
+            tableView.addRow { (contentView) in
                 contentView.addSubview(emptyDomains)
                 emptyDomains.anchors.edges.pin()
             }.onSelect { [unowned self] in
@@ -306,9 +306,6 @@ private extension CustomListsViewController {
     }
     
     @objc func addList() {
-        
-        let tableView = customBlockedListsTableView
-        
         showCreateList(
             initialListName: nil,
             forDomainList: []

@@ -236,7 +236,6 @@ private extension MoveToListViewController {
     }
     
     @objc func addNewList() {
-        let tableView = customBlockedListsTableView
         let alertController = UIAlertController(title: "Create New List", message: nil, preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] (_) in
             if let txtField = alertController.textFields?.first, let text = txtField.text {

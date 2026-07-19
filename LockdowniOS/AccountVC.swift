@@ -379,17 +379,6 @@ final class AccountViewController: BaseViewController, Loadable {
 //        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "showWhatIsVPN":
-            if let vc = segue.destination as? WhatIsVpnViewController {
-//                vc.parentVC = (tabBarController as? MainTabBarController)?.vpnViewController
-            }
-        default:
-            break
-        }
-    }
-    
     private func openQuestionnaire() {
         feedbackFlow?.startFlow()
     }

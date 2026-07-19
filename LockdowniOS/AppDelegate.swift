@@ -282,6 +282,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let privateDatabase = CKContainer(identifier: kICloudContainer).privateCloudDatabase
         let subscription = CKQuerySubscription(recordType: categoryName,
                                                predicate: NSPredicate(value: true),
+                                               subscriptionID: "lockdown.\(categoryName)",
                                                options: .firesOnRecordCreation)
         let notificationInfo = CKSubscription.NotificationInfo()
         //notificationInfo.alertBody = "" // iOS 13 doesn't like this - fails to trigger notification
@@ -488,7 +489,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Utilities
     // Returns the most recently presented UIViewController (visible)
     func getCurrentViewController() -> UIViewController? {
-        return getCurrentViewController(in: UIApplication.shared.keyWindow?.rootViewController)
+        return getCurrentViewController(in: window?.rootViewController)
     }
     
     private func getCurrentViewController(in root: UIViewController?) -> UIViewController? {
@@ -531,7 +532,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .sound])
+        completionHandler([.banner, .list, .sound])
     }
     
     func userNotificationCenter(

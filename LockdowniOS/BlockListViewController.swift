@@ -288,7 +288,7 @@ final class BlockListViewController: BaseViewController {
         
         for lockdownGroup in lockdownBlockLists {
             
-            let cell = tableView.addRow { [unowned self] (contentView) in
+            let cell = tableView.addRow { (contentView) in
                 let blockListView = BlockListView()
                 blockListView.contents = .lockdownGroup(lockdownGroup)
                 contentView.addSubview(blockListView)
@@ -396,7 +396,7 @@ extension BlockListViewController {
                 }
             }
         } else {
-            tableView.addRow { [unowned self] (contentView) in
+            tableView.addRow { (contentView) in
                 contentView.addSubview(lockedList)
                 lockedList.anchors.edges.pin()
             }.onSelect { [unowned self] in
@@ -409,7 +409,7 @@ extension BlockListViewController {
             let blockListView = BlockListView()
             blockListView.contents = .listsBlocked(list)
             
-            let cell = tableView.addRow { [unowned self] (contentView) in
+            let cell = tableView.addRow { (contentView) in
                 contentView.addSubview(blockListView)
                 blockListView.anchors.edges.pin()
             }.onSelect { [unowned self] in
@@ -433,7 +433,7 @@ extension BlockListViewController {
         let tableView = customBlockedDomainsTableView
         let emptyDomains = emptyDomainsView
         if customBlockedDomains.count == 0 {
-            tableView.addRow { [unowned self] (contentView) in
+            tableView.addRow { (contentView) in
                 contentView.addSubview(emptyDomains)
                 emptyDomains.anchors.edges.pin()
             }.onSelect { [unowned self] in
@@ -480,8 +480,6 @@ extension BlockListViewController {
     
     @objc func addList() {
         
-        let tableView = customBlockedListsTableView
-
         let alertController = UIAlertController(title: "Create New List", message: nil, preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] (_) in

@@ -29,9 +29,7 @@ final class BasePaywallService: PaywallService {
     private init() {}
     
     func showPaywall(on vc: UIViewController, forceSpecialOffer: Bool = false) {
-        defer {
-            UserDefaults.lastPaywallDisplayDate = Date()
-        }
+        UserDefaults.lastPaywallDisplayDate = Date()
 //            let paywall = TablePaywallViewController()
 //            paywall.modalPresentationStyle = .formSheet
             
@@ -74,4 +72,3 @@ enum PaywallContext {
     /// When user is in the process of code redemption after calling presentCodeRedemptionSheet() method.
     case redeemOfferCode
 }
-

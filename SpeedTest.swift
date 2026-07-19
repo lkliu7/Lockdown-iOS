@@ -50,7 +50,7 @@ public class SpeedTest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
             self.stopTime = CFAbsoluteTimeGetCurrent()
             let elapsed = self.stopTime - self.startTime
             if elapsed == 0 {
-                throw "File download failed: no time elapsed."
+                throw MessageError("File download failed: no time elapsed.")
             }
             else {
                 return self.fileSizeBytes / elapsed / 1024.0 / 1024.0
@@ -66,7 +66,7 @@ public class SpeedTest: NSObject, URLSessionDelegate, URLSessionDataDelegate {
             return rq
         }
         else {
-            throw "Invalid URL string: \(urlString)"
+            throw MessageError("Invalid URL string: \(urlString)")
         }
     }
 }

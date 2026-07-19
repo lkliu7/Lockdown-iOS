@@ -68,7 +68,7 @@ class VPNController: NSObject {
     private func setUpAndEnableVPN(completion: @escaping (_ error: Error?) -> Void) {
         guard let vpnCredentials = getVPNCredentials() else {
             // TODO: handle error
-            return completion("No VPN credentials found while enabling VPN")
+            return completion(MessageError("No VPN credentials found while enabling VPN"))
         }
         
         let serverAddress = getSavedVPNRegion().serverPrefix + vpnSourceID + "." + vpnDomain

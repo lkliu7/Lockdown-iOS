@@ -44,7 +44,7 @@
 @property(strong, readonly) _Nonnull id _ref;
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
-- (nullable instancetype)init;
+- (nonnull instancetype)init;
 - (NSString* _Nonnull)listServers:(NSError* _Nullable* _Nullable)error;
 - (BOOL)loadJson:(NSString* _Nullable)cfg error:(NSError* _Nullable* _Nullable)error;
 - (BOOL)loadToml:(NSString* _Nullable)cfg error:(NSError* _Nullable* _Nullable)error;

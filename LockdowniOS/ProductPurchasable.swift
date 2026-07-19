@@ -200,12 +200,12 @@ the following error message: \
                 }
                 .catch { error in
                     DDLogError("purchase complete: Error: \(error)")
-                    if self.popupErrorAsNSURLError("Error activating Secure Tunnel: \(error)") {
+                    if self.popupErrorAsNSURLError(error) {
                         return
                     } else if let apiError = error as? ApiError {
                         switch apiError.code {
                         default:
-                            _ = self.popupErrorAsApiError("API Error activating Secure Tunnel: \(error)")
+                            _ = self.popupErrorAsApiError(error)
                         }
                     }
                 }
@@ -223,12 +223,12 @@ the following error message: \
                 }
                 .catch { error in
                     DDLogError("purchase complete - no email: Error: \(error)")
-                    if self.popupErrorAsNSURLError("Error activating Secure Tunnel: \(error)") {
+                    if self.popupErrorAsNSURLError(error) {
                         return
                     } else if let apiError = error as? ApiError {
                         switch apiError.code {
                         default:
-                            _ = self.popupErrorAsApiError("API Error activating Secure Tunnel: \(error)")
+                            _ = self.popupErrorAsApiError(error)
                         }
                     }
                 }
@@ -236,4 +236,3 @@ the following error message: \
         })
     }
 }
-

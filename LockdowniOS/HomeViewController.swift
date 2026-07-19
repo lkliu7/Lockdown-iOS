@@ -556,7 +556,7 @@ class HomeViewController: BaseViewController, AwesomeSpotlightViewDelegate, Load
     @objc func tunnelStatusDidChange(_ notification: Notification) {
         // Firewall
         if let tunnelProviderSession = notification.object as? NETunnelProviderSession {
-            DDLogInfo("VPNStatusDidChange as NETunnelProviderSession with status: \(tunnelProviderSession.status.description)");
+            DDLogInfo("VPNStatusDidChange as NETunnelProviderSession with status: \(tunnelProviderSession.status.lockdownDescription)");
             updateFirewallButtonWithStatus(status: tunnelProviderSession.status)
             
             if getUserWantsFirewallEnabled() &&
@@ -572,7 +572,7 @@ class HomeViewController: BaseViewController, AwesomeSpotlightViewDelegate, Load
         }
         // VPN
         else if let neVPNConnection = notification.object as? NEVPNConnection {
-            DDLogInfo("VPNStatusDidChange as NEVPNConnection with status: \(neVPNConnection.status.description)");
+            DDLogInfo("VPNStatusDidChange as NEVPNConnection with status: \(neVPNConnection.status.lockdownDescription)");
             updateVPNButtonWithStatus(status: neVPNConnection.status);
             updateVPNRegionLabel()
             if NEVPNManager.shared().connection.status == .connected || NEVPNManager.shared().connection.status == .disconnected {
@@ -1114,8 +1114,9 @@ class HomeViewController: BaseViewController, AwesomeSpotlightViewDelegate, Load
         }
         // passed all checks, ask for rating
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
+            guard let windowScene = self.view.window?.windowScene else { return }
             defaults.set(ratingTriggered + 1, forKey: self.ratingTriggeredKey)
-            SKStoreReviewController.requestReview()
+            SKStoreReviewController.requestReview(in: windowScene)
         }
     }
 }
@@ -1169,7 +1170,7 @@ extension HomeViewController: PaywallViewControllerCloseDelegate {
     }
 }
 
-class LockdownCustomActivityItemProvider : UIActivityItemProvider {
+final class LockdownCustomActivityItemProvider: UIActivityItemProvider, @unchecked Sendable {
 
     let shareText: String
     
@@ -1232,9 +1233,9 @@ final class DynamicButton: PopupDialogButton {
     }
 }
 
-extension NEVPNStatus: CustomStringConvertible {
+extension NEVPNStatus {
     
-    public var description: String {
+    var lockdownDescription: String {
         switch self {
         case .invalid:
             return "invalid"
@@ -1248,6 +1249,8 @@ extension NEVPNStatus: CustomStringConvertible {
             return "reasserting"
         case .disconnecting:
             return "disconnecting"
+        @unknown default:
+            return "unknown (\(rawValue))"
         }
     }
 }

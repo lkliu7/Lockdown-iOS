@@ -396,11 +396,6 @@ extension FirewallPaywallViewController: ProductPurchasable {
         VPNSubscription.purchase(
             succeeded: {
                 self.dismiss(animated: true, completion: { [self] in
-                    if let presentingViewController = self.parentVC as? LDFirewallViewController {
-                        
-                        // TODO: change view of LDFirewallViewController
-                    }
-                    
                     // force refresh receipt, and sync with email if it exists, activate VPNte
                     if let apiCredentials = getAPICredentials(), getAPICredentialsConfirmed() == true {
                         DDLogInfo("purchase complete: syncing with confirmed email")
@@ -422,12 +417,12 @@ extension FirewallPaywallViewController: ProductPurchasable {
                         }
                         .catch { error in
                             DDLogError("purchase complete: Error: \(error)")
-                            if self.popupErrorAsNSURLError("Error activating Secure Tunnel: \(error)") {
+                            if self.popupErrorAsNSURLError(error) {
                                 return
                             } else if let apiError = error as? ApiError {
                                 switch apiError.code {
                                 default:
-                                    _ = self.popupErrorAsApiError("API Error activating Secure Tunnel: \(error)")
+                                    _ = self.popupErrorAsApiError(error)
                                 }
                             }
                         }
@@ -445,12 +440,12 @@ extension FirewallPaywallViewController: ProductPurchasable {
                         }
                         .catch { error in
                             DDLogError("purchase complete - no email: Error: \(error)")
-                            if self.popupErrorAsNSURLError("Error activating Secure Tunnel: \(error)") {
+                            if self.popupErrorAsNSURLError(error) {
                                 return
                             } else if let apiError = error as? ApiError {
                                 switch apiError.code {
                                 default:
-                                    _ = self.popupErrorAsApiError("API Error activating Secure Tunnel: \(error)")
+                                    _ = self.popupErrorAsApiError(error)
                                 }
                             }
                         }

@@ -223,7 +223,7 @@ class FirewallController: NSObject {
         }
         catch {
             DDLogError("Unable to start the tunnel after saving: " + error.localizedDescription)
-            completion(error.localizedDescription)
+            completion(MessageError(error.localizedDescription))
         }
     }
 }

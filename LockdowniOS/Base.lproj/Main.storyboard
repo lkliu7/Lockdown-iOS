@@ -992,7 +992,7 @@
                             <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                         </segue>
                         <segue destination="qUL-wd-7I2" kind="presentation" identifier="showFirewallPrivacyPolicy" id="MTm-o9-6Hq"/>
-                        <segue destination="2kB-SU-8kN" kind="presentation" id="DoL-Jm-m89"/>
+                        <segue destination="2kB-SU-8kN" kind="presentation" identifier="showVPNPrivacyPolicy" id="DoL-Jm-m89"/>
                         <segue destination="FBF-Y3-Pii" kind="presentation" identifier="showWhatIsVPN" id="XMa-OM-jKs"/>
                     </connections>
                 </viewController>
@@ -1003,7 +1003,7 @@
         <!--Why Trust View Controller-->
         <scene sceneID="RB8-7K-oGs">
             <objects>
-                <viewController id="AOS-65-lEO" customClass="WhyTrustViewController" customModule="Lockdown" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WhyTrustViewController" id="AOS-65-lEO" customClass="WhyTrustViewController" customModule="Lockdown" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="egj-pf-FSU"/>
                         <viewControllerLayoutGuide type="bottom" id="3fM-kL-gui"/>
@@ -2931,7 +2931,7 @@
         <!--Learn-->
         <scene sceneID="HSc-Ve-nOV">
             <objects>
-                <viewController id="vIf-oB-grD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LearnViewController" id="vIf-oB-grD" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nNw-cp-uFY"/>
                         <viewControllerLayoutGuide type="bottom" id="hO4-BV-pH2"/>
@@ -2989,7 +2989,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kQl-Zb-uny">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uj4-Tw-NBS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BlockListNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uj4-Tw-NBS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UY9-Xw-QS7">
                         <autoresizingMask key="autoresizingMask"/>
@@ -3006,13 +3006,13 @@
         <!--Root View Controller-->
         <scene sceneID="TbT-nf-gul">
             <objects>
-                <tableViewController id="KyU-T9-I5X" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LegacyRootTableViewController" id="KyU-T9-I5X" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="OyW-l9-USp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sk7-gQ-UJ4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LegacyRootCell" id="sk7-gQ-UJ4">
                                 <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sk7-gQ-UJ4" id="Sxf-03-nCB">
@@ -3035,7 +3035,7 @@
         <!--Configuration-->
         <scene sceneID="Ukn-8j-czd">
             <objects>
-                <navigationController id="iEl-zS-nFt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ConfigurationNavigationController" id="iEl-zS-nFt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Configuration" image="icn_configuration" id="zu3-Y2-tf2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yvf-h3-UiG">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
@@ -3071,7 +3071,7 @@
         <!--VPN-->
         <scene sceneID="Wh2-I5-5kA">
             <objects>
-                <navigationController id="dCB-DK-nrL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="VPNNavigationController" id="dCB-DK-nrL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="VPN" image="icn_vpn" id="Pf3-Xo-frR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IeE-cR-YST">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
@@ -3107,7 +3107,7 @@
         <!--Firewall-->
         <scene sceneID="VH0-b7-n7j">
             <objects>
-                <navigationController id="AZO-yR-522" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FirewallNavigationController" id="AZO-yR-522" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Firewall" image="icn_firewall" id="kzW-6l-Hcq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qd8-Fq-0Qi">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>

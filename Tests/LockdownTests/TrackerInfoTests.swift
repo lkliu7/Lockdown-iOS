@@ -13,7 +13,7 @@ class TrackerInfoTests: XCTestCase {
     
     private func loadFile() throws -> TrackerInfo {
         guard let url = Bundle.main.url(forResource: "tracker_info", withExtension: "json") else {
-            throw "Test: no file on disk"
+            throw MessageError("Test: no file on disk")
         }
         
         let content = try Data(contentsOf: url)
