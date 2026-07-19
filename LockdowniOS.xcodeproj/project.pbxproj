@@ -138,7 +138,7 @@
 		3DBD57B622FD00BC00DE189F /* SetRegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD57B522FD00BB00DE189F /* SetRegionCell.swift */; };
 		3DBD57BC22FD727900DE189F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1912FE91F58B2D00007F6D4 /* NotificationCenter.framework */; };
 		3DBD57BF22FD727900DE189F /* FirewallTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD57BE22FD727900DE189F /* FirewallTodayViewController.swift */; };
-		3DBD57C622FD727900DE189F /* Lockdown Firewall Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3DBD57BB22FD727900DE189F /* Lockdown Firewall Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3DBD57C622FD727900DE189F /* Lockdown Firewall Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3DBD57BB22FD727900DE189F /* Lockdown Firewall Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3DBD57CD22FD7AE400DE189F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E78D12207BE58C007FAE70 /* CloudKit.framework */; };
 		3DCA4F2E22F190720017740D /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA4F2D22F190720017740D /* Client.swift */; };
 		3DCA4F3122F190AE0017740D /* ClientModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA4F3022F190AE0017740D /* ClientModels.swift */; };
@@ -309,7 +309,7 @@
 		7C9A936E251E1EC700DA5721 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9A936D251E1EC700DA5721 /* SwiftUI.framework */; };
 		7C9A9371251E1EC700DA5721 /* LockdownFirewallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A9370251E1EC700DA5721 /* LockdownFirewallWidget.swift */; };
 		7C9A9373251E1EC700DA5721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9A9372251E1EC700DA5721 /* Assets.xcassets */; };
-		7C9A9377251E1EC700DA5721 /* LockdownFirewallWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7C9A936A251E1EC700DA5721 /* LockdownFirewallWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7C9A9377251E1EC700DA5721 /* LockdownFirewallWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7C9A936A251E1EC700DA5721 /* LockdownFirewallWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7C9A9384251E1F9C00DA5721 /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9A9383251E1F9C00DA5721 /* LoadingCircle.swift */; };
 		7CAB283F254336230087AAF4 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB283E254336230087AAF4 /* CustomNavigationView.swift */; };
 		7CC8EFED254036050005054C /* FirewallRepair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8EFEC254036050005054C /* FirewallRepair.swift */; };
@@ -367,7 +367,7 @@
 		A12473F41FE44285008493B8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1912FE91F58B2D00007F6D4 /* NotificationCenter.framework */; };
 		A12473F71FE44285008493B8 /* VPNTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12473F61FE44285008493B8 /* VPNTodayViewController.swift */; };
 		A12473FA1FE44285008493B8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12473F81FE44285008493B8 /* MainInterface.storyboard */; };
-		A12473FE1FE44285008493B8 /* Lockdown VPN Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A12473F31FE44284008493B8 /* Lockdown VPN Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A12473FE1FE44285008493B8 /* Lockdown VPN Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A12473F31FE44284008493B8 /* Lockdown VPN Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A1359FDA20AF6E32008C4BF7 /* LocalLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1359FD920AF6E31008C4BF7 /* LocalLogger.swift */; };
 		A154A07E215C78180010FFCC /* BlockListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154A07D215C78180010FFCC /* BlockListCell.swift */; };
 		A154A080215C7A8C0010FFCC /* BlockListAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154A07F215C7A8C0010FFCC /* BlockListAddCell.swift */; };
@@ -376,7 +376,7 @@
 		A18B31F92087ED7900C0FFAA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E78D12207BE58C007FAE70 /* CloudKit.framework */; };
 		A1931CFE20791F5900E695EB /* adBlockList.json in Resources */ = {isa = PBXBuildFile; fileRef = A1931CFD20791F5900E695EB /* adBlockList.json */; };
 		A1931D0020791F5900E695EB /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1931CFF20791F5900E695EB /* ContentBlockerRequestHandler.swift */; };
-		A1931D0420791F5900E695EB /* Lockdown Blocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A1931CFB20791F5800E695EB /* Lockdown Blocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A1931D0420791F5900E695EB /* Lockdown Blocker.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A1931CFB20791F5800E695EB /* Lockdown Blocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A1D85F07207C4C8300B766E0 /* adBlockListTwo.json in Resources */ = {isa = PBXBuildFile; fileRef = A1D85F06207C4C8300B766E0 /* adBlockListTwo.json */; };
 		A1D85F09207C52A000B766E0 /* adBlockListThree.json in Resources */ = {isa = PBXBuildFile; fileRef = A1D85F08207C52A000B766E0 /* adBlockListThree.json */; };
 		A1D85F0A207C562F00B766E0 /* adBlockListTwo.json in Resources */ = {isa = PBXBuildFile; fileRef = A1D85F06207C4C8300B766E0 /* adBlockListTwo.json */; };
@@ -407,7 +407,7 @@
 		A1EBEADC2097AE6E002B9087 /* DefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EBEAC92097AE6C002B9087 /* DefaultValues.swift */; };
 		A1EBEADD2097AE6E002B9087 /* M13CheckboxStrokeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EBEACA2097AE6D002B9087 /* M13CheckboxStrokeController.swift */; };
 		A1FCDA4422C0651300C928BC /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCDA4322C0651300C928BC /* PacketTunnelProvider.swift */; };
-		A1FCDA4922C0651300C928BC /* LockdownTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A1FCDA4122C0651300C928BC /* LockdownTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A1FCDA4922C0651300C928BC /* LockdownTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A1FCDA4122C0651300C928BC /* LockdownTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A1FCDA5D22C1301A00C928BC /* BlockListGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCDA5C22C1301900C928BC /* BlockListGroupViewController.swift */; };
 		A1FCDA5F22C14EB800C928BC /* BlockListGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCDA5E22C14EB800C928BC /* BlockListGroupCell.swift */; };
 		A1FCDA6322C7616400C928BC /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FCDA6222C7616400C928BC /* NetworkExtension.framework */; };
@@ -555,19 +555,19 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A18B79571F8C36460042A4EF /* Embed App Extensions */ = {
+		A18B79571F8C36460042A4EF /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A1931D0420791F5900E695EB /* Lockdown Blocker.appex in Embed App Extensions */,
-				3DBD57C622FD727900DE189F /* Lockdown Firewall Widget.appex in Embed App Extensions */,
-				A12473FE1FE44285008493B8 /* Lockdown VPN Widget.appex in Embed App Extensions */,
-				A1FCDA4922C0651300C928BC /* LockdownTunnel.appex in Embed App Extensions */,
-				7C9A9377251E1EC700DA5721 /* LockdownFirewallWidgetExtension.appex in Embed App Extensions */,
+				A1931D0420791F5900E695EB /* Lockdown Blocker.appex in Embed Foundation Extensions */,
+				3DBD57C622FD727900DE189F /* Lockdown Firewall Widget.appex in Embed Foundation Extensions */,
+				A12473FE1FE44285008493B8 /* Lockdown VPN Widget.appex in Embed Foundation Extensions */,
+				A1FCDA4922C0651300C928BC /* LockdownTunnel.appex in Embed Foundation Extensions */,
+				7C9A9377251E1EC700DA5721 /* LockdownFirewallWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -2279,7 +2279,7 @@
 				A1141A0D1F46230500F54698 /* Sources */,
 				A1141A0E1F46230500F54698 /* Frameworks */,
 				A1141A0F1F46230500F54698 /* Resources */,
-				A18B79571F8C36460042A4EF /* Embed App Extensions */,
+				A18B79571F8C36460042A4EF /* Embed Foundation Extensions */,
 				3DD3D09826CC8714002238E8 /* Embed Frameworks */,
 				40F495132A17A3A100AB33A0 /* Script Localizarion OFF */,
 				2505B9F94FC7347581A566AF /* [CP] Embed Pods Frameworks */,
@@ -2357,8 +2357,9 @@
 		A1141A091F46230500F54698 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 2660;
 				ORGANIZATIONNAME = "Confirmed Inc.";
 				TargetAttributes = {
 					3DBD57BA22FD727900DE189F = {
@@ -3328,7 +3329,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3364,7 +3364,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3396,7 +3395,6 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/LockdownTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3425,7 +3423,6 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/LockdownTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3459,7 +3456,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3497,7 +3493,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3546,6 +3541,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3554,8 +3550,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -3575,6 +3573,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -3608,6 +3607,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3616,8 +3616,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 38MHPWU72V;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3631,6 +3633,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
@@ -3650,7 +3653,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3688,7 +3690,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3734,7 +3735,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3776,7 +3776,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3812,7 +3811,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Lockdown Blocker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -3842,7 +3840,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Lockdown Blocker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -3875,7 +3872,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
@@ -3929,7 +3925,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38MHPWU72V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dnscryptproxy.xcframework/ios-arm64",
