@@ -55,4 +55,29 @@ post_install do |installer|
     )
     File.write(path, updated_contents) if contents != updated_contents
   end
+
+  framework_header_globs = {
+    'DynamicBlurView' => [
+      'Pods/Target Support Files/DynamicBlurView/DynamicBlurView-umbrella.h'
+    ],
+    'PromiseKit' => [
+      'Pods/PromiseKit/**/*.h',
+      'Pods/Target Support Files/PromiseKit/PromiseKit-umbrella.h'
+    ],
+    'RQShineLabel' => [
+      'Pods/Target Support Files/RQShineLabel/RQShineLabel-umbrella.h'
+    ]
+  }
+  framework_header_globs.each do |module_name, globs|
+    globs.flat_map { |glob| Dir.glob(File.join(__dir__, glob)) }.each do |path|
+      contents = File.read(path)
+      updated_contents = contents.gsub(/^#(import|include) "([^"]+)"/) do
+        "##{Regexp.last_match(1)} <#{module_name}/#{Regexp.last_match(2)}>"
+      end
+      if contents != updated_contents
+        File.chmod(0o644, path)
+        File.write(path, updated_contents)
+      end
+    end
+  end
 end
