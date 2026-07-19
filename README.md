@@ -16,13 +16,26 @@ Pull requests are welcome - please document any changes and potential bugs.
 
 ### Build Instructions
 
-1. `pod install`
+1. Install Xcode 26.6 or newer with the iOS 26.5 SDK.
 
-2. `carthage update --no-use-binaries --platform iOS` or for XCode 12 `./wcarthage update --no-use-binaries --platform iOS` (workaround for [this Carthage issue](https://github.com/Carthage/Carthage/issues/3019)) 
+2. Install CocoaPods and the acknowledgements plugin required by the `Podfile`:
 
-3. Open `LockdowniOS.xcworkspace`
+   ```sh
+   brew install cocoapods
+   "$(brew --prefix ruby)/bin/gem" install cocoapods-acknowledgements --user-install --no-document
+   ```
 
-To sign the app for devices, you will need an Apple Developer account.
+3. Install the locked dependencies:
+
+   ```sh
+   pod install --deployment
+   ```
+
+4. Open `LockdowniOS.xcworkspace` and build the `Lockdown` scheme.
+
+The Carthage-built dependencies are checked in as XCFrameworks under `ThirdPartyFrameworks`; do not run `carthage update` for a normal build.
+
+To sign the app for devices, you need an Apple Developer team provisioned for the app's Network Extension, App Group, iCloud, push notification, and associated-domain capabilities. If you do not belong to the existing team, replace the bundle IDs and shared container identifiers with identifiers owned by your team.
 
 ### Limitations to Building Locally
 
@@ -37,6 +50,5 @@ To use Secure Tunnel, you must download Lockdown from the [App Store](https://lo
 ### License
 
 This project is licensed under the GPL License - see the [LICENSE.md](LICENSE.md) file for details.
-
 
 

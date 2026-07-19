@@ -7,7 +7,6 @@
 # DS_Store.
 .DS_Store
 Pods/*
-Podfile.lock
 xcuserdata/
 
 # Carthage
@@ -15,4 +14,3 @@ xcuserdata/
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 Carthage/Checkouts
 Carthage/Build
-

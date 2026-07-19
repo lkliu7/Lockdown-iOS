@@ -18,8 +18,8 @@
         }
       ],
       "color" : {
-        "platform" : "osx",
-        "reference" : "underPageBackgroundColor"
+        "platform" : "ios",
+        "reference" : "systemBackgroundColor"
       },
       "idiom" : "universal"
     }

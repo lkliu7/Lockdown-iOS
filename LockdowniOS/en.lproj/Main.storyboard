@@ -1319,7 +1319,7 @@
         <!--Signup View Controller-->
         <scene sceneID="2lm-L5-I1M">
             <objects>
-                <viewController id="uhi-Bj-03J" customClass="SignupViewController" customModule="Lockdown" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uhi-Bj-03J" customClass="SignUpViewController" customModule="Lockdown" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QWT-ZT-YRR"/>
                         <viewControllerLayoutGuide type="bottom" id="Po9-pT-Q04"/>
