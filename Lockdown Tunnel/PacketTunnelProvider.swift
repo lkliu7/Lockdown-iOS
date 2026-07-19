@@ -113,7 +113,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     }
     
     override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
-        self.log("+++++ stopTunnel with reason: \(reason)")
+        self.log("+++++ stopTunnel with reason: \(reason.lockdownDebugDescription)")
         monitor.cancel()
         stopProxyServer()
         stopDnsServer()
@@ -408,14 +408,14 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         if let resp = response as? HTTPURLResponse {
             if (resp.statusCode >= 400 || resp.statusCode <= 0) {
                 self.log("response has bad status code \(resp.statusCode)")
-                throw "response has bad status code \(resp.statusCode)"
+                throw MessageError("response has bad status code \(resp.statusCode)")
             }
             else {
                 self.log("response has good status code (2xx, 3xx) and no error code")
             }
         }
         else {
-            throw "Invalid URL Response received: \(String(describing: response))"
+            throw MessageError("Invalid URL Response received: \(String(describing: response))")
         }
     }
     
@@ -493,9 +493,9 @@ extension Resolver {
     }
 }
 
-extension NEProviderStopReason: CustomDebugStringConvertible {
+extension NEProviderStopReason {
     
-    public var debugDescription: String {
+    var lockdownDebugDescription: String {
         switch self {
         case .none:
             return "none"
@@ -533,6 +533,8 @@ extension NEProviderStopReason: CustomDebugStringConvertible {
             return "appUpdate"
         case .internalError:
             return "internalError"
+        @unknown default:
+            return "unknown (\(rawValue))"
         }
     }
 }

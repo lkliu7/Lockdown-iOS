@@ -418,7 +418,7 @@ extension LDFirewallViewController: Loadable {
     @objc func tunnelStatusDidChange(_ notification: Notification) {
         // Firewall
         if let tunnelProviderSession = notification.object as? NETunnelProviderSession {
-            DDLogInfo("VPNStatusDidChange as NETunnelProviderSession with status: \(tunnelProviderSession.status.description)");
+            DDLogInfo("VPNStatusDidChange as NETunnelProviderSession with status: \(tunnelProviderSession.status.lockdownDescription)");
             if (!getUserWantsFirewallEnabled()) {
                 updateFirewallButtonWithStatus(status: .disconnected)
             }

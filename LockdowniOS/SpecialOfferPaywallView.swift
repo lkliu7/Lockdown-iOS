@@ -174,7 +174,7 @@ struct SpecialOfferPaywallView: View {
 }
 
 #Preview {
-    var model = SpecialOfferPaywallModel(products: VPNSubscription.specialOfferProducts, infos: [.mockYearlyBF],
+    let model = SpecialOfferPaywallModel(products: VPNSubscription.specialOfferProducts, infos: [.mockYearlyBF],
                                          closeAction: {
         print("")
     })

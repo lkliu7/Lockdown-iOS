@@ -170,8 +170,8 @@ class FirewallTodayViewController: UIViewController, NCWidgetProviding {
     
     func createRemoteRecord(recordName: String, shouldOpenAppOnFailure: Bool = false) {
         let privateDatabase = CKContainer.init(identifier: kICloudContainer).privateCloudDatabase
-        // even though this is deprecated, we're still using this for now out of concerns about compatibility
-        let myRecord = CKRecord(recordType: recordName, zoneID: CKRecordZone.default().zoneID)
+        let recordID = CKRecord.ID(zoneID: CKRecordZone.default().zoneID)
+        let myRecord = CKRecord(recordType: recordName, recordID: recordID)
         
         privateDatabase.save(myRecord, completionHandler: ({returnRecord, error in
             if let err = error {

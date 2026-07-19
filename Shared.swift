@@ -58,20 +58,31 @@ struct VPNCredentials {
     var keyBase64: String = ""
 }
 
+struct MessageError: LocalizedError, CustomStringConvertible {
+    let message: String
+
+    init(_ message: String) {
+        self.message = message
+    }
+
+    var errorDescription: String? { message }
+    var description: String { message }
+}
+
 func setVPNCredentials(id: String, keyBase64: String) throws {
     DDLogInfo("Setting VPN Credentials: \(id), base64: \(keyBase64)")
     if (id == "") {
-        throw "ID was blank"
+        throw MessageError("ID was blank")
     }
     if (keyBase64 == "") {
-        throw "Key was blank"
+        throw MessageError("Key was blank")
     }
     do {
         try keychain.set(id, key: kVPNCredentialsId)
         try keychain.set(keyBase64, key: kVPNCredentialsKeyBase64)
     }
     catch {
-        throw "Unable to set VPN credentials on keychain"
+        throw MessageError("Unable to set VPN credentials on keychain")
     }
 }
 
@@ -118,17 +129,17 @@ struct APICredentials {
 func setAPICredentials(email: String, password: String) throws {
     DDLogInfo("Setting API Credentials with email: \(email)")
     if (email == "") {
-        throw "Email was blank"
+        throw MessageError("Email was blank")
     }
     if (password == "") {
-        throw "Password was blank"
+        throw MessageError("Password was blank")
     }
     do {
         try keychain.set(email, key: kAPICredentialsEmail)
         try keychain.set(password, key: kAPICredentialsPassword)
     }
     catch {
-        throw "Unable to set API credentials on keychain"
+        throw MessageError("Unable to set API credentials on keychain")
     }
 }
 
@@ -177,7 +188,7 @@ func setAPICredentialsConfirmed(confirmed: Bool) {
 
 // MARK: - Extensions
 
-extension String: Error { // Error makes it easy to throw errors as one-liners
+extension String {
     
     func base64Encoded() -> String? {
         if let data = self.data(using: .utf8) {

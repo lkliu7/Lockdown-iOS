@@ -102,7 +102,7 @@ class WhitelistViewController: BaseViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.size.width, height: 45))
-        view.backgroundColor = UIColor.groupTableViewBackground
+        view.backgroundColor = UIColor.systemGroupedBackground
         let label = UILabel(frame: CGRect.init(x: 20, y: 20, width: tableView.frame.size.width, height: 24))
         label.font = fontMedium14
         label.textColor = UIColor.darkGray

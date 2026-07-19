@@ -560,7 +560,7 @@ extension LDVpnViewController: Loadable {
     
     @objc func tunnelStatusDidChange(_ notification: Notification) {
         if let neVPNConnection = notification.object as? NEVPNConnection {
-            DDLogInfo("VPNStatusDidChange as NEVPNConnection with status: \(neVPNConnection.status.description)");
+            DDLogInfo("VPNStatusDidChange as NEVPNConnection with status: \(neVPNConnection.status.lockdownDescription)");
             updateVPNButtonWithStatus(status: neVPNConnection.status);
             updateVPNRegionLabel()
             if NEVPNManager.shared().connection.status == .connected || NEVPNManager.shared().connection.status == .disconnected {

@@ -128,15 +128,15 @@ internal func * <Type, Axis>(anchor: Anchor<Type, Axis>, multiplier: CGFloat) ->
 // MARK: - Anchors (AnchorType.Alignment)
 
 internal extension Anchor where Type: AnchorType.Alignment {
-    @discardableResult func equal<Type: AnchorType.Alignment>(_ anchor: Anchor<Type, Axis>, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func equal<OtherType: AnchorType.Alignment>(_ anchor: Anchor<OtherType, Axis>, constant: CGFloat = 0) -> NSLayoutConstraint {
         Constraints.constrain(self, anchor, constant: constant, relation: .equal)
     }
 
-    @discardableResult func greaterThanOrEqual<Type: AnchorType.Alignment>(_ anchor: Anchor<Type, Axis>, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func greaterThanOrEqual<OtherType: AnchorType.Alignment>(_ anchor: Anchor<OtherType, Axis>, constant: CGFloat = 0) -> NSLayoutConstraint {
         Constraints.constrain(self, anchor, constant: constant, relation: .greaterThanOrEqual)
     }
 
-    @discardableResult func lessThanOrEqual<Type: AnchorType.Alignment>(_ anchor: Anchor<Type, Axis>, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func lessThanOrEqual<OtherType: AnchorType.Alignment>(_ anchor: Anchor<OtherType, Axis>, constant: CGFloat = 0) -> NSLayoutConstraint {
         Constraints.constrain(self, anchor, constant: constant, relation: .lessThanOrEqual)
     }
 }
@@ -144,15 +144,15 @@ internal extension Anchor where Type: AnchorType.Alignment {
 // MARK: - Anchors (AnchorType.Dimension)
 
 internal extension Anchor where Type: AnchorType.Dimension {
-    @discardableResult func equal<Type: AnchorType.Dimension, Axis>(_ anchor: Anchor<Type, Axis>, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func equal<OtherType: AnchorType.Dimension, OtherAxis>(_ anchor: Anchor<OtherType, OtherAxis>, constant: CGFloat = 0) -> NSLayoutConstraint {
         Constraints.constrain(self, anchor, constant: constant, relation: .equal)
     }
 
-    @discardableResult func greaterThanOrEqual<Type: AnchorType.Dimension, Axis>(_ anchor: Anchor<Type, Axis>, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func greaterThanOrEqual<OtherType: AnchorType.Dimension, OtherAxis>(_ anchor: Anchor<OtherType, OtherAxis>, constant: CGFloat = 0) -> NSLayoutConstraint {
         Constraints.constrain(self, anchor, constant: constant, relation: .greaterThanOrEqual)
     }
 
-    @discardableResult func lessThanOrEqual<Type: AnchorType.Dimension, Axis>(_ anchor: Anchor<Type, Axis>, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func lessThanOrEqual<OtherType: AnchorType.Dimension, OtherAxis>(_ anchor: Anchor<OtherType, OtherAxis>, constant: CGFloat = 0) -> NSLayoutConstraint {
         Constraints.constrain(self, anchor, constant: constant, relation: .lessThanOrEqual)
     }
 }
@@ -183,7 +183,7 @@ extension Anchor where Type: AnchorType.Edge {
     }
 
     /// Adds spacing between the current anchors.
-    @discardableResult internal func spacing<Type: AnchorType.Edge>(_ spacing: CGFloat, to anchor: Anchor<Type, Axis>, relation: NSLayoutConstraint.Relation = .equal) -> NSLayoutConstraint {
+    @discardableResult internal func spacing<OtherType: AnchorType.Edge>(_ spacing: CGFloat, to anchor: Anchor<OtherType, Axis>, relation: NSLayoutConstraint.Relation = .equal) -> NSLayoutConstraint {
         let isInverted = (attribute == .bottom && anchor.attribute == .top) ||
             (attribute == .right && anchor.attribute == .left) ||
             (attribute == .trailing && anchor.attribute == .leading)

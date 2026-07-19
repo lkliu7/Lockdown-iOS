@@ -53,7 +53,7 @@ class Client {
                     return try JSONDecoder().decode(SignIn.self, from: data)
                 }
                 else {
-                    throw "No valid cookie received and/or set when trying to sign in"
+                    throw MessageError("No valid cookie received and/or set when trying to sign in")
                 }
             }
     }
@@ -255,7 +255,7 @@ class Client {
             return rq
         }
         else {
-            throw "Invalid URL string: \(urlString)"
+            throw MessageError("Invalid URL string: \(urlString)")
         }
     }
     
@@ -271,7 +271,7 @@ class Client {
             return rq
         }
         else {
-            throw "Invalid URL string: \(urlString)"
+            throw MessageError("Invalid URL string: \(urlString)")
         }
     }
     
@@ -291,17 +291,17 @@ class Client {
                     do {
                         switch error {
                         case ReceiptError.noReceiptData:
-                            throw "Error refreshing purchases with App Store: No Receipt Data"
+                            throw MessageError("Error refreshing purchases with App Store: No Receipt Data")
                         case ReceiptError.networkError(let networkError):
-                            throw "Error refreshing purchases with App Store: Network Error - \(networkError.localizedDescription)"
+                            throw MessageError("Error refreshing purchases with App Store: Network Error - \(networkError.localizedDescription)")
                         case ReceiptError.noRemoteData:
-                            throw "Error refreshing purchases with App Store: No Remote Data"
+                            throw MessageError("Error refreshing purchases with App Store: No Remote Data")
                         case ReceiptError.receiptInvalid(_, let receiptStatus):
-                            throw "Error refreshing purchases with App Store: Invalid Receipt - \(receiptStatus)"
+                            throw MessageError("Error refreshing purchases with App Store: Invalid Receipt - \(receiptStatus)")
                         case ReceiptError.requestBodyEncodeError(let error):
-                            throw "Error refreshing purchases with App Store: Encoding Error - \(error.localizedDescription)"
+                            throw MessageError("Error refreshing purchases with App Store: Encoding Error - \(error.localizedDescription)")
                         case ReceiptError.jsonDecodeError(_):
-                            throw "Error refreshing purchases with App Store: JSON Decode Error"
+                            throw MessageError("Error refreshing purchases with App Store: JSON Decode Error")
                         }
                     }
                     catch {
@@ -367,14 +367,14 @@ class Client {
             // some 4xx/5xx error
             else if (resp.statusCode >= 400 || resp.statusCode <= 0) {
                 DDLogError("response has bad status code \(resp.statusCode)")
-                throw "response has bad status code \(resp.statusCode)"
+                throw MessageError("response has bad status code \(resp.statusCode)")
             }
             else {
                 DDLogInfo("response has good status code (2xx, 3xx) and no error code")
             }
         }
         else {
-            throw "Invalid URL Response received"
+            throw MessageError("Invalid URL Response received")
         }
     }
 }

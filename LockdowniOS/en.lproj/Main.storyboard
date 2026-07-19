@@ -999,7 +999,7 @@
                             <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                         </segue>
                         <segue destination="qUL-wd-7I2" kind="presentation" identifier="showFirewallPrivacyPolicy" id="MTm-o9-6Hq"/>
-                        <segue destination="2kB-SU-8kN" kind="presentation" id="DoL-Jm-m89"/>
+                        <segue destination="2kB-SU-8kN" kind="presentation" identifier="showVPNPrivacyPolicy" id="DoL-Jm-m89"/>
                         <segue destination="uhi-Bj-03J" kind="presentation" identifier="showUpgradePlan" id="QzY-Hs-CoL"/>
                         <segue destination="FBF-Y3-Pii" kind="presentation" identifier="showWhatIsVPN" id="XMa-OM-jKs"/>
                     </connections>
@@ -1011,7 +1011,7 @@
         <!--Why Trust View Controller-->
         <scene sceneID="RB8-7K-oGs">
             <objects>
-                <viewController id="AOS-65-lEO" customClass="WhyTrustViewController" customModule="Lockdown" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WhyTrustViewController" id="AOS-65-lEO" customClass="WhyTrustViewController" customModule="Lockdown" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="egj-pf-FSU"/>
                         <viewControllerLayoutGuide type="bottom" id="3fM-kL-gui"/>
@@ -3454,7 +3454,7 @@
         <!--Learn-->
         <scene sceneID="HSc-Ve-nOV">
             <objects>
-                <viewController id="vIf-oB-grD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LearnViewController" id="vIf-oB-grD" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nNw-cp-uFY"/>
                         <viewControllerLayoutGuide type="bottom" id="hO4-BV-pH2"/>
@@ -3511,7 +3511,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kQl-Zb-uny">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uj4-Tw-NBS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BlockListNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uj4-Tw-NBS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UY9-Xw-QS7">
                         <rect key="frame" x="0.0" y="-20" width="0.0" height="0.0"/>

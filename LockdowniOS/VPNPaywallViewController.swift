@@ -428,14 +428,6 @@ extension VPNPaywallViewController: ProductPurchasable {
     }
     
     func updatePricingSubtitle() {
-        let context: VPNSubscription.SubscriptionContext = {
-            switch mode {
-            case .newSubscription:
-                return .new
-            case .upgrade:
-                return .upgrade
-            }
-        }()
     }
     
     @objc func startTrial() {

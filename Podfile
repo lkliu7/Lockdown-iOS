@@ -39,10 +39,20 @@ target :'LockdownTests' do
   pod 'SnapshotTesting', :git => 'https://github.com/pointfreeco/swift-snapshot-testing.git', :commit => '8e9f685'
 end
 
- post_install do |installer|
-   installer.pods_project.targets.each do |target|
-     target.build_configurations.each do |config|
-       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
-     end
-   end
- end
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+    end
+  end
+
+  swift_messages_xibs = Dir.glob(File.join(__dir__, 'Pods/SwiftMessages/SwiftMessages/Resources/*.xib'))
+  swift_messages_xibs.each do |path|
+    contents = File.read(path)
+    updated_contents = contents.gsub(
+      /<deployment version="[^"]+" identifier="iOS"\/>/,
+      '<deployment identifier="iOS"/>'
+    )
+    File.write(path, updated_contents) if contents != updated_contents
+  end
+end
