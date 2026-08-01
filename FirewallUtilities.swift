@@ -276,6 +276,16 @@ func setupFirewallDefaultBlockLists() {
         domains: getDomainBlockList(filename: "general_ads"),
         ipRanges: [:],
         accessLevel: "basic")
+
+    let peterLoweBlockList = LockdownGroup.init(
+        version: 1,
+        internalID: "peter_lowe",
+        name: NSLocalizedString("Peter Lowe's Block List", comment: "The title of a third-party list of ad and tracking servers"),
+        iconURL: "ads_icon",
+        enabled: false,
+        domains: getDomainBlockList(filename: "peter_lowe"),
+        ipRanges: [:],
+        warning: "This list blocks ads, trackers, malware, and other unwanted hosts. Some sites or app features may stop working while it is enabled.")
     
     let reporting = LockdownGroup.init(
         version: 30,
@@ -370,6 +380,7 @@ func setupFirewallDefaultBlockLists() {
         googleShoppingAds,
         dataTrackers,
         generalAds,
+        peterLoweBlockList,
         reporting,
         amazonTrackers];
     
@@ -402,8 +413,9 @@ func getDomainBlockList(filename: String) -> Dictionary<String, Bool> {
         let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
         let lines = content.components(separatedBy: "\n")
         for line in lines {
-            if (line.trimmingCharacters(in: CharacterSet.whitespaces) != "" && !line.starts(with: "#")) {
-                domains[line] = true;
+            let domain = line.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !domain.isEmpty && !domain.starts(with: "#") {
+                domains[domain] = true
             }
         }
     } catch _ as NSError {

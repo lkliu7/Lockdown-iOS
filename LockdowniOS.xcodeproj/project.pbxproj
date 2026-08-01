@@ -12,6 +12,7 @@
 		3D01D97B2480DCB3003A710C /* data_trackers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3D01D97A2480DBED003A710C /* data_trackers.txt */; };
 		3D01D99E2481E42B003A710C /* reporting.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3D01D99D2481E252003A710C /* reporting.txt */; };
 		3D01D99F2481E42E003A710C /* general_ads.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3D01D99C2481E241003A710C /* general_ads.txt */; };
+		C0D3B1012E3A000100000001 /* peter_lowe.txt in Resources */ = {isa = PBXBuildFile; fileRef = C0D3B1022E3A000100000001 /* peter_lowe.txt */; };
 		3D0971D822EBAD1000CCD326 /* facebook_sdk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3D0971D722EBAD1000CCD326 /* facebook_sdk.txt */; };
 		3D0971DA22EBAD4C00CCD326 /* marketing.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3D0971D922EBAD4C00CCD326 /* marketing.txt */; };
 		3D3BF4CC233D5E9100D0C482 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D3BF4D0233D5E9100D0C482 /* Localizable.strings */; };
@@ -334,6 +335,7 @@
 		3D01D97A2480DBED003A710C /* data_trackers.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_trackers.txt; sourceTree = "<group>"; };
 		3D01D99C2481E241003A710C /* general_ads.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = general_ads.txt; sourceTree = "<group>"; };
 		3D01D99D2481E252003A710C /* reporting.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = reporting.txt; sourceTree = "<group>"; };
+		C0D3B1022E3A000100000001 /* peter_lowe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = peter_lowe.txt; sourceTree = "<group>"; };
 		3D0971D722EBAD1000CCD326 /* facebook_sdk.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = facebook_sdk.txt; sourceTree = "<group>"; };
 		3D0971D922EBAD4C00CCD326 /* marketing.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = marketing.txt; sourceTree = "<group>"; };
 		3D3BF4CF233D5E9100D0C482 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -652,6 +654,7 @@
 				A1FCDA8422CDE60800C928BC /* crypto_mining.txt */,
 				3D01D97A2480DBED003A710C /* data_trackers.txt */,
 				3D01D99C2481E241003A710C /* general_ads.txt */,
+				C0D3B1022E3A000100000001 /* peter_lowe.txt */,
 				3DF5D75E2633B1E100F77D79 /* amazon_trackers.txt */,
 				3D01D99D2481E252003A710C /* reporting.txt */,
 				3D5F5A0923107EB8004C3860 /* snapchat_analytics.txt */,
@@ -1478,6 +1481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D01D99F2481E42E003A710C /* general_ads.txt in Resources */,
+				C0D3B1012E3A000100000001 /* peter_lowe.txt in Resources */,
 				3D01D99E2481E42B003A710C /* reporting.txt in Resources */,
 				40E7A2F22A0CE8AE00E0231A /* advanced_gaming.txt in Resources */,
 				A1FCDA8722CDE8C000C928BC /* crypto_mining_ips.txt in Resources */,
