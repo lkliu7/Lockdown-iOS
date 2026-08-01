@@ -37,27 +37,14 @@ func setupLocalLogger() {
 func writeCommonInfoToLog() {
     let nsObject: String? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
     let systemVersion = UIDevice.current.systemVersion
-    let accessLevel = accessLevel()
     DDLogInfo("")
     DDLogInfo("")
     DDLogInfo("************************************************")
     DDLogInfo("Lockdown iOS: v" + nsObject!)
     DDLogInfo("iOS version: " + systemVersion)
     DDLogInfo("Device model: " + UIDevice.current.modelName)
-    DDLogInfo("Access level: " + accessLevel)
+    DDLogInfo("Mode: Personal Firewall")
     DDLogInfo("************************************************")
-}
-
-fileprivate func accessLevel() -> String {
-    if UserDefaults.hasSeenUniversalPaywall {
-        return "Universal"
-    } else if UserDefaults.hasSeenAnonymousPaywall {
-        return "Anonymous"
-    } else if UserDefaults.hasSeenAdvancedPaywall {
-        return "Advanced"
-    } else {
-        return "Basic"
-    }
 }
 
 class LogFormatter: DDDispatchQueueLogFormatter {

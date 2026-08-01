@@ -42,42 +42,6 @@ struct UserDefault<T> {
     }
 }
 
-extension UserDefaults {
-    
-    @UserDefault("homeScreenLastPaywallDisplayDate", defaultValue: Date(), isLogged: true)
-    static var lastPaywallDisplayDate
-    
-    @UserDefault("hasSeenPaywallOnHomeScreen", defaultValue: false, isLogged: true)
-    static var hasSeenPaywallOnHomeScreen
-    
-    @UserDefault("hasSeenLTO", defaultValue: false, isLogged: true)
-    static var hasSeenLTO
-    
-    @UserDefault("hasSeenAdvancedPaywall", defaultValue: false, isLogged: true)
-    static var hasSeenAdvancedPaywall
-    
-    @UserDefault("hasSeenAnonymousPaywall", defaultValue: false, isLogged: true)
-    static var hasSeenAnonymousPaywall
-    
-    @UserDefault("hasSeenUniversalPaywall", defaultValue: false, isLogged: true)
-    static var hasSeenUniversalPaywall
-    
-    @UserDefault("hasSeenStartupOneTimeOffer", defaultValue: false, isLogged: true)
-    static var hasSeenStartupOneTimeOffer
-    
-    @UserDefault("onboardingCompleted", defaultValue: false, isLogged: true, userDefaults: UserDefaults.standard)
-    static var onboardingCompleted
-    
-    @UserDefault("hasPurchasedFromOnboarding", defaultValue: false, isLogged: true, userDefaults: UserDefaults.standard)
-    static var hasPurchasedFromOnboarding
-    
-    @UserDefault("shouldShowMultipleSubscriptionAlert", defaultValue: false, isLogged: true, userDefaults: UserDefaults.standard)
-    static var shouldShowMultipleSubscriptionAlert
-    
-    @UserDefault("didShowMultipleSubscriptionAlert", defaultValue: false, isLogged: true, userDefaults: UserDefaults.standard)
-    static var didShowMultipleSubscriptionAlert
-}
-
 // MARK: - Content Blocker
 
 extension UserDefaults {
@@ -96,4 +60,3 @@ extension UserDefaults {
         static var socialBlockingEnabled
     }
 }
-

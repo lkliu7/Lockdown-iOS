@@ -2,49 +2,23 @@
 //  MainTabBarViewController.swift
 //  Lockdown
 //
-//  Created by Oleg Dreyman on 02.10.2020.
-//  Copyright © 2020 Confirmed Inc. All rights reserved.
-//
 
 import UIKit
 
 final class MainTabBarController: UITabBarController {
-    
-    var fireWallViewController: LDFirewallViewController? { viewControllers![0] as? LDFirewallViewController }
-    
-    var vpnViewController: LDVpnViewController? { viewControllers![1] as? LDVpnViewController }
-    
-    var configurationViewController: LDConfigurationViewController? { viewControllers![2] as? LDConfigurationViewController }
-
-    var accountViewController: AccountViewController? {
-        for viewController in viewControllers ?? [] {
-            if let navigationController = viewController as? UINavigationController,
-               let accountViewController = navigationController.viewControllers.first as? AccountViewController {
-                return accountViewController
-            }
-        }
-        return nil
-    }
-
-    var homeViewController: HomeViewController? {
-        if let homeVC = viewControllers?.first(where: { $0 is HomeViewController }) {
-            return homeVC as? HomeViewController
-        }
-        return nil
+    var firewallViewController: HomeViewController? {
+        viewControllers?.first as? HomeViewController
     }
 
     override func viewDidLoad() {
-         super.viewDidLoad()
+        super.viewDidLoad()
 
-        guard let homeViewController else { return }
-        homeViewController.feedbackFlow = FeedbackFlow(presentingViewController: homeViewController, purchaseHandler: homeViewController)
+        guard let controllers = viewControllers, controllers.count >= 2 else { return }
+        viewControllers = Array(controllers.prefix(2))
 
-        guard let accountViewController else { return }
-        accountViewController.feedbackFlow = FeedbackFlow(presentingViewController: accountViewController, purchaseHandler: homeViewController)
-    }
-
-    var accountTabBarButton: UIView? {
-        // this assumes that "Account" is the last tab. Change the code if this is no longer true
-        return tabBar.subviews.last(where: { String(describing: type(of: $0)) == "UITabBarButton" })
+        viewControllers?[0].tabBarItem.title = NSLocalizedString("Firewall", comment: "")
+        viewControllers?[0].tabBarItem.image = UIImage(systemName: "lock.shield.fill")
+        viewControllers?[1].tabBarItem.title = NSLocalizedString("Settings", comment: "")
+        viewControllers?[1].tabBarItem.image = UIImage(systemName: "gearshape.fill")
     }
 }

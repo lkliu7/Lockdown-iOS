@@ -88,17 +88,7 @@ extension CuratedListsViewController: UITableViewDataSource {
         case 0:
             sectionName.text = NSLocalizedString("Basic", comment: "")
         case 1:
-            sectionName.text = NSLocalizedString("Premium", comment: "")
-            
-                let lockImage = UIImageView()
-                lockImage.image = UIImage(named: "icn_lock")
-                lockImage.contentMode = .center
-                
-                view.addSubview(lockImage)
-                lockImage.anchors.trailing.marginsPin()
-                lockImage.anchors.centerY.equal(sectionName.anchors.centerY)
-            
-            if UserDefaults.hasSeenAdvancedPaywall || UserDefaults.hasSeenAnonymousPaywall || UserDefaults.hasSeenUniversalPaywall { lockImage.isHidden = true }
+            sectionName.text = NSLocalizedString("Advanced", comment: "")
             
         default: break
         }
@@ -164,16 +154,11 @@ extension CuratedListsViewController: UITableViewDataSource {
             target.blockListVC = self
             self.navigationController?.pushViewController(target, animated: true)
         case 1:
-            if UserDefaults.hasSeenAdvancedPaywall || UserDefaults.hasSeenAnonymousPaywall || UserDefaults.hasSeenUniversalPaywall {
-                let storyboard = UIStoryboard.main
-                let target = storyboard.instantiate(BlockListGroupViewController.self)
-                target.lockdownGroup = advancedLockdownBlockLists[indexPath.row]
-                target.blockListVC = self
-                self.navigationController?.pushViewController(target, animated: true)
-            } else {
-                let vc = VPNPaywallViewController()
-                present(vc, animated: true)
-            }
+            let storyboard = UIStoryboard.main
+            let target = storyboard.instantiate(BlockListGroupViewController.self)
+            target.lockdownGroup = advancedLockdownBlockLists[indexPath.row]
+            target.blockListVC = self
+            navigationController?.pushViewController(target, animated: true)
             
         default:
             break

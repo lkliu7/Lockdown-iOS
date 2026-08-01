@@ -9,9 +9,6 @@
 
 import Foundation
 import CocoaLumberjackSwift
-import KeychainAccess
-
-let isTestFlight = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
 
 var appInstallDate: Date? {
     if let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last {
@@ -41,23 +38,6 @@ func appHasJustBeenUpgradedOrIsNewInstall() -> Bool {
 
 let reachability = Availability()
 
-let keychain = Keychain(service: "com.confirmed.tunnels").synchronizable(true)
-
-// MARK: - VPN Credentials
-
-let kVPNCredentialsKeyBase64 = "VPNCredentialsKeyBase64"
-let kVPNCredentialsId = "VPNCredentialsId"
-
-let kICloudContainer = "iCloud.com.confirmed.lockdown"
-let kOpenFirewallTunnelRecord = "OpenFirewallTunnelRemotely"
-let kCloseFirewallTunnelRecord = "CloseFirewallTunnelRemotely"
-let kRestartFirewallTunnelRecord = "RestartFirewallTunnelRemotely"
-
-struct VPNCredentials {
-    var id: String = ""
-    var keyBase64: String = ""
-}
-
 struct MessageError: LocalizedError, CustomStringConvertible {
     let message: String
 
@@ -67,123 +47,6 @@ struct MessageError: LocalizedError, CustomStringConvertible {
 
     var errorDescription: String? { message }
     var description: String { message }
-}
-
-func setVPNCredentials(id: String, keyBase64: String) throws {
-    DDLogInfo("Setting VPN Credentials: \(id), base64: \(keyBase64)")
-    if (id == "") {
-        throw MessageError("ID was blank")
-    }
-    if (keyBase64 == "") {
-        throw MessageError("Key was blank")
-    }
-    do {
-        try keychain.set(id, key: kVPNCredentialsId)
-        try keychain.set(keyBase64, key: kVPNCredentialsKeyBase64)
-    }
-    catch {
-        throw MessageError("Unable to set VPN credentials on keychain")
-    }
-}
-
-func getVPNCredentials() -> VPNCredentials? {
-    DDLogInfo("Getting stored VPN credentials")
-    var id: String? = nil
-    do {
-        id = try keychain.get(kVPNCredentialsId)
-        if id == nil {
-            DDLogError("No stored credential id")
-            return nil
-        }
-    }
-    catch {
-        DDLogError("Error getting stored VPN credentials id: \(error)")
-        return nil
-    }
-    var keyBase64: String? = nil
-    do {
-        keyBase64 = try keychain.get(kVPNCredentialsKeyBase64)
-        if keyBase64 == nil {
-            DDLogError("No stored credential keyBase64")
-            return nil
-        }
-    }
-    catch {
-        DDLogError("Error getting stored VPN credentials keyBase64: \(error)")
-        return nil
-    }
-    DDLogInfo("Returning stored VPN credentials: \(id!) \(keyBase64!)")
-    return VPNCredentials(id: id!, keyBase64: keyBase64!)
-}
-
-// MARK: - API Credentials
-
-let kAPICredentialsEmail = "APICredentialsEmail"
-let kAPICredentialsPassword = "APICredentialsPassword"
-
-struct APICredentials {
-    var email: String = ""
-    var password: String = ""
-}
-
-func setAPICredentials(email: String, password: String) throws {
-    DDLogInfo("Setting API Credentials with email: \(email)")
-    if (email == "") {
-        throw MessageError("Email was blank")
-    }
-    if (password == "") {
-        throw MessageError("Password was blank")
-    }
-    do {
-        try keychain.set(email, key: kAPICredentialsEmail)
-        try keychain.set(password, key: kAPICredentialsPassword)
-    }
-    catch {
-        throw MessageError("Unable to set API credentials on keychain")
-    }
-}
-
-func clearAPICredentials() {
-    try? keychain.remove(kAPICredentialsEmail)
-    try? keychain.remove(kAPICredentialsPassword)
-}
-
-func getAPICredentials() -> APICredentials? {
-    print("Getting stored API credentials")
-    var email: String? = nil
-    do {
-        email = try keychain.get(kAPICredentialsEmail)
-        if email == nil {
-            print("No stored API credential email")
-            return nil
-        }
-    }
-    catch {
-        print("Error getting stored API credentials email: \(error)")
-        return nil
-    }
-    var password: String? = nil
-    do {
-        password = try keychain.get(kAPICredentialsPassword)
-        if password == nil {
-            print("No stored API credential password")
-            return nil
-        }
-    }
-    catch {
-        print("Error getting stored API credentials password: \(error)")
-        return nil
-    }
-    print("Returning stored API credentials with email: \(email!)")
-    return APICredentials(email: email!, password: password!)
-}
-
-func getAPICredentialsConfirmed() -> Bool {
-    return defaults.bool(forKey: kAPICredentialsConfirmed)
-}
-
-func setAPICredentialsConfirmed(confirmed: Bool) {
-    defaults.set(confirmed, forKey: kAPICredentialsConfirmed)
 }
 
 // MARK: - Extensions
@@ -213,16 +76,10 @@ extension UIColor {
     static let tunnelsWarning = UIColor(red: 231/255.0, green: 76/255.0, blue: 68/255.0, alpha: 1.0)
     static let tunnelsDarkBlue = UIColor(red: 0/255.0, green: 117/255.0, blue: 157/255.0, alpha: 1.0)
     static let tunnelsLightBlue = UIColor(red: 223/255.0, green: 243/255.0, blue: 251/255.0, alpha: 1.0)
-    static let paywallOrange = UIColor(red: 255/255, green: 171/255, blue: 0/255, alpha: 1)
-    static let paywallNew = UIColor(red: 0.225, green: 0.219, blue: 0.6, alpha: 1.0)
     static let borderGray = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
     static let borderBlue = UIColor(red: 0, green: 0.678, blue: 0.906, alpha: 1)
     static let smallGrey = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
-    static var purplePaywall = UIColor(red: 134/255.0, green: 26/255.0, blue: 201/255.0, alpha: 1)
-    static var purplePaywall2 = UIColor(red: 103/255.0, green: 26/255.0, blue: 201/255.0, alpha: 1)
     static var extraLightGray = UIColor(red: 242/255.0, green: 244/255.0, blue: 245/255.0, alpha: 1)
-    static var gradientPink1 = UIColor(red: 0.788, green: 0.102, blue: 0.788, alpha: 1)
-    static var gradientPink2 = UIColor(red: 0.405, green: 0.103, blue: 0.789, alpha: 1)
     static let tunnelsBlueTest = UIColor(red: 0/255.0, green: 173/255.0, blue: 231/255.0, alpha: 0.0)
     static let lockdownRed = UIColor(red: 214.0/255.0, green: 87.0/255.0, blue: 75.0/255.0, alpha: 1.0)
     static let panelSecondaryBackground = UIColor(named: "Panel Secondary Background")
@@ -272,34 +129,6 @@ extension UIDevice {
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         return identifier
-    }
-}
-
-enum AppConfiguration {
-    case Debug
-    case TestFlight
-    case AppStore
-}
-
-struct Config {
-    private static let isTestFlight = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
-    
-    static var isDebug: Bool {
-        #if DEBUG
-        return true
-        #else
-        return false
-        #endif
-    }
-    
-    static var appConfiguration: AppConfiguration {
-        if isDebug {
-            return .Debug
-        } else if isTestFlight {
-            return .TestFlight
-        } else {
-            return .AppStore
-        }
     }
 }
 

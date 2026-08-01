@@ -27,7 +27,6 @@ final class LockdownAppearance {
         dialogAppearance.messageTextAlignment = .center
         
         [DefaultButton.appearance(),
-         DynamicButton.appearance(),
          CancelButton.appearance()].forEach { appearance in
             appearance.buttonColor = .systemBackground
             appearance.separatorColor = UIColor(white: 0.2, alpha: 1)

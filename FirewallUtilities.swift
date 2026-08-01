@@ -110,7 +110,7 @@ func updateMetrics(_ mode: MetricsUpdate.Mode, rescheduleNotifications: MetricsU
     
     if (100 ... 200) ~= updatedTotal, rescheduleNotifications.allowsScheduling {
         OneTimeActions.performOnce(ifHasNotSeen: .oneHundredTrackingAttemptsBlockedNotification) {
-            PushNotifications.shared.scheduleOnboardingNotification(
+            PushNotifications.shared.scheduleBlockMilestoneNotification(
                 options: rescheduleNotifications == .withEnergySaving ? [.energySaving] : []
             )
         }

@@ -35,9 +35,9 @@ final class ConnectivityService {
     }
     
     func showConnectionErrorIfNeeded() {
-        // When VPN is in a transitioning state (.disconnecting, .connecting), internet is temporarily cut off.
+        // Network Extension transitions briefly interrupt connectivity.
         // We should not show any warning in this case.
-        guard ![.disconnecting, .connecting].contains(NEVPNManager.shared().connection.status) else { return }
+        guard ![.disconnecting, .connecting].contains(FirewallController.shared.status()) else { return }
         
         DispatchQueue.main.async {
             if let errorMessage = self.connectionState.errorMessage {

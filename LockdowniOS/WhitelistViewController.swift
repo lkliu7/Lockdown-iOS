@@ -33,7 +33,7 @@ class WhitelistViewController: BaseViewController, UITableViewDataSource, UITabl
             if self.didMakeChange == true {
                 if getIsCombinedBlockListEmpty() {
                     FirewallController.shared.setEnabled(false, isUserExplicitToggle: true)
-                } else if VPNController.shared.status() == .connected {
+                } else if FirewallController.shared.status() == .connected {
                     FirewallController.shared.restart()
                 }
             }

@@ -9,7 +9,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Lockdown VPN</string>
+	<string>Lockdown Firewall</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -43,32 +43,18 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We use this to automatically select the best region for the VPN.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use this to automatically select the best region for the VPN.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>You asked to save an image to your photos. This does not give access to read your photos.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Bold.ttf</string>
-		<string>Montserrat-Light.ttf</string>
 		<string>Montserrat-Medium.ttf</string>
 		<string>Montserrat-Regular.ttf</string>
 		<string>Montserrat-SemiBold.ttf</string>
-		<string>Montserrat-Thin.ttf</string>
-		<string>SF-Pro-Rounded-Bold.otf</string>
 		<string>SF-Pro-Rounded-Medium.otf</string>
 		<string>SF-Pro-Rounded-Regular.otf</string>
-		<string>SF-Pro-Rounded-Semibold.otf</string>
-		<string>Juana-SemiBold.ttf</string>
-		<string>KumbhSans-Bold.ttf</string>
-		<string>KumbhSans-Regular.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
-		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

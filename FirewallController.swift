@@ -8,7 +8,6 @@
 import UIKit
 import NetworkExtension
 import CocoaLumberjackSwift
-import PromiseKit
 import WidgetKit
 
 let kFirewallTunnelLocalizedDescription = "Lockdown Configuration"
@@ -176,7 +175,6 @@ class FirewallController: NSObject {
                 DDLogError("Read preference error before start firewall: " + error.localizedDescription)
             }
             DDLogInfo("Successfully saved config for enabled state: \(enabled)")
-            // manually activate the starting of the tunnel, and also do a dummy connect to a nonexistant, invalid URL to force enabling
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 if (enabled) {
                     self?.startFirewallTunnel(completion: completion)
@@ -198,18 +196,6 @@ class FirewallController: NSObject {
         DDLogInfo("FirewallController.setEnabled enabled, calling startVPNTunnel")
         do {
             try manager.connection.startVPNTunnel()
-            let config = URLSessionConfiguration.default
-            config.requestCachePolicy = .reloadIgnoringLocalCacheData
-            config.urlCache = nil
-            let session = URLSession.init(configuration: config)
-            if let url = URL(string: "https://nonexistant_invalid_url") {
-                let task = session.dataTask(with: url) { (data, response, error) in
-                    DDLogInfo("FirewallController.setEnabled response from calling nonexistant url")
-                    return
-                }
-                DDLogInfo("FirewallController.setEnabled calling nonexistant url")
-                task.resume()
-            }
             DDLogInfo("FirewallController.setEnabled refreshing manager")
             refreshManager(completion: { error in
                 if let error {

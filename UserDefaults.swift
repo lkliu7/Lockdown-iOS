@@ -21,14 +21,6 @@ enum LatestKnowledge {
         }
     }
     
-    static var isVPNEnabled: Bool {
-        get {
-            return defaults.bool(forKey: kLatestKnowledgeIsVPNEnabled)
-        }
-        set {
-            defaults.setValue(newValue, forKey: kLatestKnowledgeIsVPNEnabled)
-        }
-    }
 }
 
 func setUserWantsFirewallEnabled(_ enabled: Bool) {
@@ -37,12 +29,4 @@ func setUserWantsFirewallEnabled(_ enabled: Bool) {
 
 func getUserWantsFirewallEnabled() -> Bool {
     return defaults.bool(forKey: kUserWantsFirewallEnabled)
-}
-
-func setUserWantsVPNEnabled(_ enabled: Bool) {
-    defaults.set(enabled, forKey: kUserWantsVPNEnabled)
-}
-
-func getUserWantsVPNEnabled() -> Bool {
-    return defaults.bool(forKey: kUserWantsVPNEnabled)
 }

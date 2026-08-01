@@ -9,7 +9,6 @@ import NetworkExtension
 import NEKit
 import Dnscryptproxy
 import Network
-import PromiseKit
 import CocoaLumberjack
 
 var latestBlockedDomains = getAllBlockedDomains()
@@ -371,52 +370,6 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 //                }
 //            }
 //        }
-    }
-    
-    func checkNetworkConnection(callback: @escaping (Bool) -> Void, attempt: Int = 1) {
-
-        log("===== checkNetworkConnection - attempt #\(attempt)")
-        URLCache.shared.removeAllCachedResponses()
-        firstly {
-            try makeNetworkConnection()
-        }
-        .map { [weak self] data, response -> Void in
-            guard let self else { return }
-            try self.validateNetworkResponse(response: response)
-            callback(true)
-        }
-        .catch { [weak self] error in
-            guard let self else { return }
-            self.log("ERROR - failed checkNetworkConnection attempt #\(attempt): \(error)")
-            if attempt < 3 {
-                DispatchQueue.global(qos: .default).asyncAfter(deadline: DispatchTime.now() + (attempt == 1 ? 5 : 15)) {
-                    self.checkNetworkConnection(callback: callback, attempt: attempt + 1)
-                }
-            } else {
-                self.log("ERROR - failed checkNetworkConnection attempt #\(attempt): \(error)")
-                callback(false)
-            }
-        }
-    }
-    
-    func makeNetworkConnection() throws -> Promise<(data: Data, response: URLResponse)> {
-        return URLSession.shared.dataTask(.promise, with: try Client.makeGetRequest(urlString: "https://apple.com"))
-    }
-    
-    func validateNetworkResponse(response: URLResponse?) throws {
-        self.log("validating checkNetworkConnection response")
-        if let resp = response as? HTTPURLResponse {
-            if (resp.statusCode >= 400 || resp.statusCode <= 0) {
-                self.log("response has bad status code \(resp.statusCode)")
-                throw MessageError("response has bad status code \(resp.statusCode)")
-            }
-            else {
-                self.log("response has good status code (2xx, 3xx) and no error code")
-            }
-        }
-        else {
-            throw MessageError("Invalid URL Response received: \(String(describing: response))")
-        }
     }
     
 }

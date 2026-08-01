@@ -89,7 +89,7 @@ class BlockListView: UIView {
 extension BlockListView.Contents {
     
     static func listsBlocked(_ userBlockListsGroup: UserBlockListsGroup) -> Self {
-        let image = UIImage(named: "icn_list_lock")
+        let image = UIImage(named: "icn_create_list")
         let status = userBlockListsGroup.enabled ?
             NSLocalizedString("On", comment: "") :
             NSLocalizedString("Off", comment: "")

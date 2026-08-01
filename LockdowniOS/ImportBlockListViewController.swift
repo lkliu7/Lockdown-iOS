@@ -249,7 +249,7 @@ extension ImportBlockListViewController {
         } catch {
             dismiss(animated: true) {
                 let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""),
-                                              message: NSLocalizedString("Unable to import the list. Please try again or contact support for assistance", comment: ""),
+                                              message: NSLocalizedString("Unable to import the list. Check the file format and try again.", comment: ""),
                                               preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("Close", comment: ""),
                                               style: .default,

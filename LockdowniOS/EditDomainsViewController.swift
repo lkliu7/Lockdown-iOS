@@ -51,7 +51,7 @@ final class EditDomainsViewController: UIViewController {
         let view = BottomMenu()
         view.leftButton.addTarget(self, action: #selector(selectAllddDomains), for: .touchUpInside)
         view.middleButton.addTarget(self, action: #selector(moveToList), for: .touchUpInside)
-        view.middleButton.isHidden = true
+        view.middleButton.isHidden = false
         view.middleButton.isEnabled = false
         view.rightButton.addTarget(self, action: #selector(deleteDomains), for: .touchUpInside)
         view.rightButton.isEnabled = false
@@ -64,9 +64,6 @@ final class EditDomainsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
-        
-        if UserDefaults.hasSeenAdvancedPaywall || UserDefaults.hasSeenAnonymousPaywall || UserDefaults.hasSeenUniversalPaywall {
-            bottomMenu.middleButton.isHidden = false }
         
         configureDomainsTableView()
         configureUI()

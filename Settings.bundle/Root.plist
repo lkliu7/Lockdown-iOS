@@ -10,22 +10,6 @@
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 			<key>Title</key>
-			<string>Acknowledgements-Widgets</string>
-			<key>File</key>
-			<string>Pods-Lockdown-Widgets-settings-metadata</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-			<key>Title</key>
-			<string>Acknowledgements-Tunnel</string>
-			<key>File</key>
-			<string>Pods-LockdownTunnel-settings-metadata</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-			<key>Title</key>
 			<string>Acknowledgements-Lockdown</string>
 			<key>File</key>
 			<string>Pods-Lockdown-settings-metadata</string>

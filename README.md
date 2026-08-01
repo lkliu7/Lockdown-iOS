@@ -1,6 +1,8 @@
-# Lockdown Privacy (iOS)
+# Personal Lockdown Firewall (iOS)
 
-Lockdown is an open source firewall that blocks trackers, ads, and badware in all apps. Product details at [lockdownprivacy.com](https://lockdownprivacy.com).
+This personal build of Lockdown provides a local, on-device firewall and Safari content blocker. It keeps the packet-tunnel extension, Safari blocker, firewall WidgetKit extension, shared block lists, allowlist, logs, metrics, and local notifications.
+
+It does not include Lockdown's commercial Secure Tunnel, accounts, subscriptions, StoreKit, paywalls, onboarding, CloudKit, APNs, or legacy Today widgets. It makes no Lockdown account, subscription, purchase, or VPN-credential requests.
 
 ### Feature Requests + Bugs
 
@@ -35,13 +37,7 @@ Pull requests are welcome - please document any changes and potential bugs.
 
 The Carthage-built dependencies are checked in as XCFrameworks under `ThirdPartyFrameworks`; do not run `carthage update` for a normal build.
 
-To sign the app for devices, you need an Apple Developer team provisioned for the app's Network Extension, App Group, iCloud, push notification, and associated-domain capabilities. If you do not belong to the existing team, replace the bundle IDs and shared container identifiers with identifiers owned by your team.
-
-### Limitations to Building Locally
-
-If you build Lockdown locally, you will not be able to access Secure Tunnel, because that requires a Production app store receipt. We will soon enable a DEV environment for Secure Tunnel with limited capacity and regions, designed only for testing.
-
-To use Secure Tunnel, you must download Lockdown from the [App Store](https://lockdownprivacy.com).
+To sign the app for devices, you need an Apple Developer team provisioned for the packet-tunnel Network Extension and the shared App Group. The app embeds exactly three extensions: `LockdownTunnel`, `Lockdown Blocker`, and `LockdownFirewallWidgetExtension`.
 
 ### Contact
 
@@ -50,5 +46,4 @@ To use Secure Tunnel, you must download Lockdown from the [App Store](https://lo
 ### License
 
 This project is licensed under the GPL License - see the [LICENSE.md](LICENSE.md) file for details.
-
 

@@ -81,7 +81,7 @@ final class BlockListViewController: BaseViewController {
         button.tintColor = .tunnelsBlue
         button.setImage(UIImage(systemName: "plus", withConfiguration: symbolConfig), for: .normal)
         button.addTarget(self, action: #selector(showSubmenu), for: .touchUpInside)
-        button.isEnabled = false
+        button.isEnabled = true
         return button
     }()
     
@@ -98,11 +98,6 @@ final class BlockListViewController: BaseViewController {
         view.descriptionLabel.text = NSLocalizedString("No lists yet", comment: "")
         view.addButton.setTitle(NSLocalizedString("Create a list", comment: ""), for: .normal)
         view.addButton.addTarget(self, action: #selector(addList), for: .touchUpInside)
-        return view
-    }()
-    
-    private lazy var lockedListsView: LockedListsView = {
-        let view = LockedListsView()
         return view
     }()
     
@@ -294,24 +289,10 @@ final class BlockListViewController: BaseViewController {
                 contentView.addSubview(blockListView)
                 blockListView.anchors.edges.pin()
             }.onSelect { [unowned self] in
-                if UserDefaults.hasSeenAdvancedPaywall || UserDefaults.hasSeenAnonymousPaywall || UserDefaults.hasSeenUniversalPaywall {
-                    let storyboard = UIStoryboard.main
-                    let target = storyboard.instantiate(BlockListGroupViewController.self)
-                    target.lockdownGroup = lockdownGroup
-//                    target.blockListVC = self
-                    self.navigationController?.pushViewController(target, animated: true)
-                } else {
-                    if lockdownGroup.accessLevel == "advanced" {
-                        let vc = VPNPaywallViewController()
-                        present(vc, animated: true)
-                    } else {
-                        let storyboard = UIStoryboard.main
-                        let target = storyboard.instantiate(BlockListGroupViewController.self)
-                        target.lockdownGroup = lockdownGroup
-//                        target.blockListVC = self
-                        self.navigationController?.pushViewController(target, animated: true)
-                    }
-                }
+                let storyboard = UIStoryboard.main
+                let target = storyboard.instantiate(BlockListGroupViewController.self)
+                target.lockdownGroup = lockdownGroup
+                self.navigationController?.pushViewController(target, animated: true)
             }
             
             cell.accessoryType = .disclosureIndicator
@@ -383,25 +364,13 @@ extension BlockListViewController {
     func createCustomBlockedListsRows() {
         let tableView = customBlockedListsTableView
         let emptyList = emptyListsView
-        let lockedList = lockedListsView
-        
-        if UserDefaults.hasSeenAdvancedPaywall || UserDefaults.hasSeenAnonymousPaywall || UserDefaults.hasSeenUniversalPaywall {
-            addNewListButton.isEnabled = true
-            if customBlockedLists.count == 0 {
-                tableView.addRow { [unowned self] (contentView) in
-                    contentView.addSubview(emptyList)
-                    emptyListsView.anchors.edges.pin()
-                }.onSelect { [unowned self] in
-                    self.addList()
-                }
-            }
-        } else {
-            tableView.addRow { (contentView) in
-                contentView.addSubview(lockedList)
-                lockedList.anchors.edges.pin()
+        addNewListButton.isEnabled = true
+        if customBlockedLists.count == 0 {
+            tableView.addRow { [unowned self] contentView in
+                contentView.addSubview(emptyList)
+                emptyListsView.anchors.edges.pin()
             }.onSelect { [unowned self] in
-                let vc = VPNPaywallViewController()
-                self.present(vc, animated: true)
+                self.addList()
             }
         }
         
@@ -626,7 +595,7 @@ extension BlockListViewController {
     
     func showErrorAlert() {
         let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""),
-                                      message: NSLocalizedString("Unable to import the list. Please try again or contact support for assistance", comment: ""),
+                                      message: NSLocalizedString("Unable to import the list. Check the file format and try again.", comment: ""),
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Close", comment: ""),
                                       style: .default,

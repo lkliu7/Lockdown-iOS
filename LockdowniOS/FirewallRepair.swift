@@ -113,26 +113,22 @@ enum FirewallRepair {
                     })
                 }
                 else {
-                    Client.getBlockedDomainTest().done {
-                        DDLogError("Repair \(context): Repair Fetch Test Failed: Connected to \(testFirewallDomain) even though it's supposed to be blocked")
-                        DDLogError("Repair \(context): Doing repair")
-                        FirewallController.shared.restart(completion: {
-                            error in
-                            if error != nil {
-                                DDLogError("Repair \(context): Error restarting firewall on \(context): \(error!)")
+                    testBlockedDomain { domainWasReachable in
+                        guard domainWasReachable else {
+                            DDLogInfo("Repair \(context): \(testFirewallDomain) was blocked as expected")
+                            completion(.noAction)
+                            return
+                        }
+
+                        DDLogError("Repair \(context): connected to \(testFirewallDomain); restarting Firewall")
+                        FirewallController.shared.restart { error in
+                            if let error {
+                                DDLogError("Repair \(context): restart failed: \(error)")
+                                completion(.failed(error))
+                            } else {
+                                completion(.repairAttempted)
                             }
-                            DDLogError("Repair \(context): Returned from restart, no error")
-                            completion(.repairAttempted)
-                        })
-                    }.catch { error in
-                        let nsError = error as NSError
-                        if nsError.domain == NSURLErrorDomain {
-                            DDLogInfo("Repair \(context): Successful blocking of \(testFirewallDomain) with NSURLErrorDomain error: \(nsError)")
                         }
-                        else {
-                            DDLogInfo("Repair \(context): Successful blocking of \(testFirewallDomain), but seeing non-NSURLErrorDomain error: \(error)")
-                        }
-                        completion(.repairAttempted)
                     }
                 }
             }
@@ -140,5 +136,20 @@ enum FirewallRepair {
                 completion(.noAction)
             }
         })
+    }
+
+    private static func testBlockedDomain(completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: "https://\(testFirewallDomain)") else {
+            completion(false)
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        request.timeoutInterval = 10
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            let reachable = error == nil && (response as? HTTPURLResponse)?.statusCode != nil
+            completion(reachable)
+        }.resume()
     }
 }

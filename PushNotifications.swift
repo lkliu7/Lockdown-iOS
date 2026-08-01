@@ -42,9 +42,9 @@ final class PushNotifications {
         }
     }
     
-    func scheduleOnboardingNotification(options: RescheduleOptions) {
+    func scheduleBlockMilestoneNotification(options: RescheduleOptions) {
         serialQueue.async {
-            self.scheduleOnboardingPush(options: options)
+            self.scheduleBlockMilestoneNotificationOnQueue(options: options)
         }
     }
     
@@ -62,7 +62,7 @@ final class PushNotifications {
         }
     }
     
-    private func scheduleOnboardingPush(options: RescheduleOptions) {
+    private func scheduleBlockMilestoneNotificationOnQueue(options: RescheduleOptions) {
         
         #if DEBUG
         dispatchPrecondition(condition: .onQueue(serialQueue))
@@ -70,7 +70,7 @@ final class PushNotifications {
 
         guard Authorization.getUserWantsNotificationsEnabledForAnyCategory() else {
             if options.contains(.energySaving) == false {
-                DDLogWarn("Notifications are not approved by user, not scheduling onboarding")
+                DDLogWarn("Notifications are not approved by user, not scheduling block milestone")
             }
             return
         }
@@ -79,14 +79,14 @@ final class PushNotifications {
         
         guard totalMetrics >= 100 else {
             if options.contains(.energySaving) == false {
-                DDLogError("Error: asked to schedule onboarding notification when total metrics are below 100")
+                DDLogError("Error: asked to schedule block milestone when total metrics are below 100")
             }
             return
         }
         
-        let content = ContentMaker.makeNotificationContentForOnboarding()
+        let content = ContentMaker.makeBlockMilestoneContent()
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2.0, repeats: false)
-        let identifier = Identifier.onboarding
+        let identifier = Identifier.blockMilestone
         let request = UNNotificationRequest(identifier: identifier.rawValue, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { (error) in
@@ -97,7 +97,7 @@ final class PushNotifications {
             if let error = error {
                 DDLogError("Error scheduling notification: \(error)")
             } else {
-                DDLogInfo("Succesfully scheduled onboarding notification")
+                DDLogInfo("Successfully scheduled block milestone notification")
             }
         }
     }
@@ -170,7 +170,7 @@ extension PushNotifications {
             return Identifier(rawValue: "weekly-update-\(year)-\(month)-\(day)")
         }
         
-        static let onboarding = Identifier(rawValue: "onboarding")
+        static let blockMilestone = Identifier(rawValue: "100-block-milestone")
         
         var isWeeklyUpdate: Bool {
             return rawValue.starts(with: "weekly-update")
@@ -196,7 +196,7 @@ extension PushNotifications {
             }
         }
         
-        static func makeNotificationContentForOnboarding() -> UNMutableNotificationContent {
+        static func makeBlockMilestoneContent() -> UNMutableNotificationContent {
             let content = UNMutableNotificationContent()
             content.title = NSLocalizedString("You've just blocked 100 tracking attempts!", comment: "")
             content.body = NSLocalizedString("Tap to see what they are.", comment: "Used in the paragraph: You've just blocked 100 tracking attempts! Tap to see what they are.")
